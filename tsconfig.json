@@ -1,15 +1,10 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "build/dist",
+    "outDir": "./build/dist",
     "target": "es5",
-    "lib": [
-      "es6",
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "rootDir": "src",
+    "lib": ["es6", "dom", "dom.iterable", "esnext"],
+    "rootDir": "./src",
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
@@ -26,11 +21,6 @@
     "noEmit": true,
     "jsx": "react"
   },
-  "exclude": [
-    "node_modules",
-    "build"
-  ],
-  "include": [
-    "src"
-  ]
+  "exclude": ["node_modules", "build"],
+  "include": ["src"]
 }
