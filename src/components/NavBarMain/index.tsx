@@ -4,43 +4,32 @@ import { Link } from 'react-router-dom';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import TextField from '@material-ui/core/TextField';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo_transparent.svg';
 import AppBar from '@material-ui/core/AppBar';
 
 import { useStyles } from './style';
 
-export function NavBar(): React.ReactElement {
+export function NavBarMain(): React.ReactElement {
   const classes = useStyles();
 
   return (
     <React.Fragment>
-      <AppBar position="static" color="inherit" elevation={0}>
-        <Toolbar className={classes.toolbar}>
+      <AppBar
+        className={classes.appbar}
+        position="static"
+        color="inherit"
+        elevation={0}
+      >
+        <Toolbar>
           <IconButton>
-          <Link
+            <Link
               to={{
-                pathname: `/search`
+                pathname: `/`
               }}
             >
               <img src={logo} width={30} alt="logo" />
             </Link>
           </IconButton>
-
-          <TextField
-            className={classes.toolbarSearch}
-            id="input-with-icon-textfield"
-            variant="outlined"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              )
-            }}
-          />
 
           <div className={classes.grow} />
           <div>

@@ -2,8 +2,9 @@ import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
 import defaultTheme from './styles/default';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import MainPage from './pages/MainPage';
+import MainPage from './pages/Main/MainPage';
 import LoginPage from './pages/Login/LoginPage';
+import SearchPage from './pages/Search/SearchPage';
 import './App.css';
 
 interface AppProps {
@@ -21,6 +22,7 @@ const App: React.FC<AppProps> = ({ isLoggedIn }) => {
 const LoggedOutRoutes: React.SFC = () => (
   <Switch>
     <Route exact path="/login" component={LoginPage} />
+    <Route exact path="/search" component={SearchPage} />
     <Route path="/" component={MainPage} />
   </Switch>
 );
