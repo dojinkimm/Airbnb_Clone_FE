@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 
 import { useStyles } from './style';
 
-export function Filter(): React.ReactElement {
+export function Dialog(): React.ReactElement {
   const classes = useStyles();
 
   return (
@@ -15,7 +15,6 @@ export function Filter(): React.ReactElement {
           <Button  className={classes.button} size="small" variant="outlined">날짜</Button>
           <Button  className={classes.button} size="small" variant="outlined">인원</Button>
           <Button  className={classes.button} size="small" variant="outlined">숙소 유형</Button>
-          <Button  className={classes.button} size="small" variant="outlined">요금</Button>
           <Button  className={classes.button} size="small" variant="outlined">필터 추가하기</Button>
         </div>
       </Toolbar>
