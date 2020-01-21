@@ -7,40 +7,59 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
-import logo from '../../assets/logo.svg';
 import AppBar from '@material-ui/core/AppBar';
 
 import { useStyles } from './style';
 
-export function NavBar(): React.ReactElement {
+interface Props {
+  logo: string;
+  path: string;
+  hasTextField: boolean;
+}
+
+export function NavBar({
+  logo,
+  path,
+  hasTextField
+}: Props): React.ReactElement {
   const classes = useStyles();
+  const toolbar = hasTextField ? classes.toolbar : '';
 
   return (
     <React.Fragment>
-      <AppBar position="static" color="inherit" elevation={0}>
-        <Toolbar className={classes.toolbar}>
+      <AppBar
+        className={classes.appbar}
+        position="static"
+        color="inherit"
+        elevation={0}
+      >
+        <Toolbar className={toolbar}>
           <IconButton>
-          <Link
+            <Link
               to={{
-                pathname: `/search`
+                pathname: `${path}`
               }}
             >
               <img src={logo} width={30} alt="logo" />
             </Link>
           </IconButton>
 
-          <TextField
-            className={classes.toolbarSearch}
-            id="input-with-icon-textfield"
-            variant="outlined"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              )
-            }}
-          />
+          {hasTextField ? (
+            <TextField
+              className={classes.toolbarSearch}
+              id="input-with-icon-textfield"
+              variant="outlined"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                )
+              }}
+            />
+          ) : (
+            ''
+          )}
 
           <div className={classes.grow} />
           <div>

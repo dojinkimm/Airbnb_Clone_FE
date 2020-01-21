@@ -1,7 +1,8 @@
 import React from 'react';
-import { NavBarMain } from 'src/components/NavBarMain';
+import { NavBar } from 'src/components/NavBar';
 import { useStyles } from './style';
 import { Search } from 'src/components/Search';
+import logo from '../../../assets/logo_transparent.svg';
 
 
 export function MainUI(): React.ReactElement {
@@ -10,7 +11,7 @@ export function MainUI(): React.ReactElement {
   return (
     <React.Fragment>
       <div className={classes.back}>
-        <NavBarMain />
+        <NavBar logo={logo} path={'/'} hasTextField={false} />
         <Search/>
       </div>
     </React.Fragment>
