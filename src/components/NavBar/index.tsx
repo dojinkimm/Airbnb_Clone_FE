@@ -66,7 +66,11 @@ export function NavBar({
             <Button size="small">한국어(KR)</Button>
             <Button size="small">₩ KRW</Button>
             <Button size="small">Sign up</Button>
-            <Button size="small">Login</Button>
+            <Link
+              to={{
+                pathname: '/login'
+              }}
+            ><Button size="small">Login</Button></Link>
           </div>
         </Toolbar>
       </AppBar>

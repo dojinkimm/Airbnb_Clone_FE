@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useStyles } from './style';
-import { GridList, GridListTile } from '@material-ui/core';
+// import { GridList, GridListTile } from '@material-ui/core';
 
 interface Data {
   id: number;

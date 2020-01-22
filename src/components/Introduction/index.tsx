@@ -5,9 +5,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 import {House, LocationOn, LocalLaundryServiceSharp, Star } from '@material-ui/icons';
 import Button from '@material-ui/core/Button';
-import { DateRangePicker } from 'react-dates';
-import 'react-dates/initialize';
-import 'react-dates/lib/css/_datepicker.css';
 
 interface Props {
   data: {
@@ -106,15 +103,7 @@ export function Introduction(data: Props): React.ReactElement {
         <Typography className={classes.marginVertical}><a href="/">호스트에게 연락하기</a></Typography>
       </div>
       <Divider />
-      {/* <DateRangePicker
-          startDateId="startDate"
-          endDateId="endDate"
-          startDate={null}
-          endDate={null}
-          onDatesChange={() => { }}
-          focusedInput={null}
-          onFocusChange={() => { }}
-        /> */}
+    
     </React.Fragment>
   );
 }
