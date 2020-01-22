@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import GridList from '@material-ui/core/GridList';
 import Star from '@material-ui/icons/Star';

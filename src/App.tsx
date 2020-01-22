@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MainPage from './pages/Main/MainPage';
 import LoginPage from './pages/Login/LoginPage';
 import SearchPage from './pages/Search/SearchPage';
+import RoomPage from './pages/Room/RoomPage';
 import './App.css';
 
 interface AppProps {
@@ -23,6 +24,7 @@ const LoggedOutRoutes: React.SFC = () => (
   <Switch>
     <Route exact path="/login" component={LoginPage} />
     <Route exact path="/search" component={SearchPage} />
+    <Route exact path="/room" component={RoomPage} />
     <Route path="/" component={MainPage} />
   </Switch>
 );
@@ -30,6 +32,8 @@ const LoggedOutRoutes: React.SFC = () => (
 const LoggedInRoutes: React.SFC = () => (
   <Switch>
     <Route exact path="/logout" component={LoginPage} />
+    <Route exact path="/search" component={SearchPage} />
+    <Route exact path="/room" component={RoomPage} />
     <Route path="/" component={MainPage} />
   </Switch>
 );

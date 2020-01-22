@@ -6,7 +6,7 @@ const theme = {
     alert: '#ffa000',
     success: '#388e3c',
     white: '#fff',
-    black: '#212121',
+    black: '#484848',
     transparent: 'transparent',
     grayscale: [
       '#212121',
