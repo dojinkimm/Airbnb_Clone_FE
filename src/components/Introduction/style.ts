@@ -6,6 +6,10 @@ export const useStyles = makeStyles(theme => ({
     marginTop: '1.5rem',
     marginBottom: '1.5rem'
   },
+  marginVertical:{
+    marginTop: '1.5rem',
+    marginBottom: '1.5rem'
+  },
   growFlex:{
     flex:1
   },
@@ -14,5 +18,8 @@ export const useStyles = makeStyles(theme => ({
   },
   icons:{
     marginRight: '2rem',
+  },
+  fullWidth:{
+    width: '100%'
   }
 }));

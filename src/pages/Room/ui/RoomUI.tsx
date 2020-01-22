@@ -2,7 +2,7 @@ import React from 'react';
 import { NavBar } from '../../../components/NavBar';
 import { ImageViewer } from '../../../components/ImageViewer';
 import { Introduction } from '../../../components/Introduction';
-import { SearchCard } from '../../../components/SearchCard';
+// import { SearchCard } from '../../../components/SearchCard';
 import { useStyles } from './style';
 import logo from '../../../assets/logo.svg';
 import Container from '@material-ui/core/Container';

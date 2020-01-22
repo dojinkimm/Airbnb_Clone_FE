@@ -6,7 +6,7 @@ export const useStyles = makeStyles(theme => ({
     maxWidth: '100%'
   },
   introContainer:{
-    maxWidth: '60%',
+    maxWidth: '50%',
     alignContent: 'center',
     display: 'block',
     marginTop: '2rem'
