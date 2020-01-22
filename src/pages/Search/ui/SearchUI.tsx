@@ -16,6 +16,13 @@ import paris from '../../../assets/city/paris.jpeg';
 import kairo from '../../../assets/city/kairo.jpg';
 import singapore from '../../../assets/city/singapore.jpg';
 
+import pic1 from '../../../assets/houses/pic1.jpg';
+import pic2 from '../../../assets/houses/pic2.jpg';
+import pic3 from '../../../assets/houses/pic3.jpg';
+import pic4 from '../../../assets/houses/pic4.jpg';
+import pic5 from '../../../assets/houses/pic5.jpg';
+
+
 const tileData = [
   {
     id: 1,
@@ -70,12 +77,48 @@ const tileData = [
 const tileData2 = [
   {
     id: 1,
-    img: seoul,
-    title: 'Seoul',
-    location: 'Seoul',
+    img: pic1,
+    title: 'I SETTE CONI - TRULLO EDERA',
+    location: '오스투니',
     link: '/search',
     isSuperHost: true,
     rate: 4.93
+  },
+  {
+    id: 2,
+    img: pic2,
+    title: 'The Joshua Tree House',
+    location: '조슈아 트리',
+    link: '/search',
+    isSuperHost: true,
+    rate: 4.92
+  },
+  {
+    id: 3,
+    img: pic3,
+    title: 'The Mushroom Dome Retreat & LAND of Paradise Suite',
+    location: '산타크루즈(Santa Cruz) Aptos',
+    link: '/search',
+    isSuperHost: true,
+    rate: 4.76
+  },
+  {
+    id: 4,
+    img: pic4,
+    title: 'The World Famous Seashell House ~ Casa Caracol',
+    location: '무헤레스 섬',
+    link: '/search',
+    isSuperHost: true,
+    rate: 4.75
+  },
+  {
+    id: 5,
+    img: pic5,
+    title: 'Romantic Cabana with view',
+    location: '아르메니아',
+    link: '/search',
+    isSuperHost: true,
+    rate: 4.87
   },
  
 ];

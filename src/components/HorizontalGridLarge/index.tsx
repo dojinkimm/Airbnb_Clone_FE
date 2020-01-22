@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
+import Star from '@material-ui/icons/Star';
+import Typography from '@material-ui/core/Typography';
+import { CardContent, Card } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
 
 import { useStyles } from './style';
 
@@ -29,15 +32,28 @@ export function HorizontalGridLarger({ tileData }: Props): React.ReactElement {
       <div className={classes.root}>
         <GridList className={classes.gridList} spacing={10} cols={5}>
           {tileData.map(tile => (
-            <GridListTile key={tile.img}>
-              <GridListTileBar
-                title={tile.title}
-                classes={{
-                  root: classes.titleBar,
-                  title: classes.title
-                }}
-              />
-            </GridListTile>
+            <Card
+              className={classes.card}
+              elevation={0}
+              style={{ padding: '0px', height: '35vh' }}
+            >
+              <img className={classes.image} src={tile.img} alt={tile.title} />
+
+              <CardContent className={classes.cardcontent}>
+                <Container className={classes.container}>
+                  <Box component="span" className={classes.box}>
+                    슈퍼호스트
+                  </Box>
+                  <Box component="span" className={classes.subtitle}>
+                    {tile.location}
+                  </Box>
+                  <div className={classes.grow} />
+                  <Star className={classes.icon} />
+                    <Typography className={classes.rate}>{tile.rate}</Typography>
+                </Container>
+                <Typography className={classes.title}>{tile.title}</Typography>
+              </CardContent>
+            </Card>
           ))}
         </GridList>
       </div>
