@@ -1,12 +1,17 @@
 import React from 'react';
 import LoginUI from './ui/LoginUI';
 
-const AuthURL = (returnTo = '/'): string =>
-  `http://localhost:3000/auth?returnTo=${returnTo}`;
+const { SERVER_URL } = process.env;
+
+
+
+const AuthURL = 
+  `${SERVER_URL}/login?returnTo=/`;
 
 export default class LoginPage extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
+    console.log(SERVER_URL);
 
     this.state = {
       value: ''
@@ -20,6 +25,6 @@ export default class LoginPage extends React.Component<any, any> {
   };
 
   render() {
-    return <LoginUI />;
+    return <LoginUI/>;
   }
 }
