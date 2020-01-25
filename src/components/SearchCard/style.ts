@@ -2,16 +2,22 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles(theme => ({
   card: {
-    height: '50vh',
+    height: '35vh',
     width: '20vw',
-    overflow: 'visible'
+    overflow: 'visible',
+  },
+  cardHeader:{
+    width: '80%',
+    marginLeft: '10%'
   },
   form: {
     width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
     overflow: 'visible'
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2)
+  button:{
+    width: '100%',
+    marginTop: '1.5rem',
+    backgroundColor: '#FF5A5F',
+    color: '#FFFFFF'
   }
 }));

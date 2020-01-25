@@ -8,6 +8,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import Divider from '@material-ui/core/Divider';
 
 import moment, { Moment } from 'moment';
 import { DateRangePicker } from 'react-dates';
@@ -24,7 +25,14 @@ export default function Search(): React.ReactElement {
   return (
     <React.Fragment>
       <Card className={classes.card}>
-        <CardHeader title="특색 있는 숙소와 즐길 거리를 예약하세요." />
+      <div className={classes.cardHeader}>
+          <CardHeader
+            title="특색 있는 숙소와 즐길 거리를 예약하세요."
+            titleTypographyProps={{ variant: 'h6' }}
+          />
+          <Divider />
+        </div>
+
         <CardContent>
           <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -32,13 +40,12 @@ export default function Search(): React.ReactElement {
             <form className={classes.form}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
+                  목적지
                   <TextField
                     variant="outlined"
                     required
                     fullWidth
                     id="destination"
-                    placeholder="모든 위치"
-                    label="목적지"
                     name="destination"
                     InputLabelProps={{
                       shrink: true
@@ -46,6 +53,7 @@ export default function Search(): React.ReactElement {
                   />
                 </Grid>
                 <Grid item xs={12}>
+                  날짜
                   <DateRangePicker
                     startDateId="startDate"
                     endDateId="endDate"
@@ -90,14 +98,13 @@ export default function Search(): React.ReactElement {
                       />
                     </Grid> */}
                 <Grid item xs={12}>
+                  인원
                   <TextField
                     variant="outlined"
                     select
                     required
                     fullWidth
                     id="people"
-                    placeholder="인원"
-                    label="인원"
                     name="people"
                     InputLabelProps={{
                       shrink: true
@@ -109,7 +116,7 @@ export default function Search(): React.ReactElement {
                 type="submit"
                 variant="contained"
                 color="primary"
-                className={classes.submit}
+                className={classes.button}
               >
                 검색
               </Button>
