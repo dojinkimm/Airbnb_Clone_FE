@@ -1,11 +1,10 @@
 import React from 'react';
-import { NavBar } from '../../../components/NavBar';
-import { Filter } from '../../../components/Filter';
-import { HorizontalGrid } from '../../../components/HorizontalGrid';
-import { HorizontalGridLarger } from '../../../components/HorizontalGridLarge';
+import BaseTemplate from 'src/pages/BaseTemplate/BaseTemplate';
+import { HorizontalGridLarger, HorizontalGrid } from 'src/components';
 import { useStyles } from './style';
+
 import Typography from '@material-ui/core/Typography';
-import logo from '../../../assets/logo.svg';
+
 
 import seoul from '../../../assets/city/seoul.jpg';
 import newyork from '../../../assets/city/newyork.jpg';
@@ -21,7 +20,6 @@ import pic2 from '../../../assets/houses/pic2.jpg';
 import pic3 from '../../../assets/houses/pic3.jpg';
 import pic4 from '../../../assets/houses/pic4.jpg';
 import pic5 from '../../../assets/houses/pic5.jpg';
-
 
 const tileData = [
   {
@@ -119,16 +117,13 @@ const tileData2 = [
     link: '/search',
     isSuperHost: true,
     rate: 4.87
-  },
- 
+  }
 ];
 export function SearchUI(): React.ReactElement {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
-      <NavBar logo={logo} path={'/search'} hasTextField={true} />
-      <Filter />
+    <BaseTemplate>
       <div className={classes.content}>
         <div className={classes.instruction}>
           여행 날짜와 게스트 인원수를 입력하면 1박당 총 요금을 확인할 수
@@ -147,8 +142,8 @@ export function SearchUI(): React.ReactElement {
             최고의 평점을 받은 전 세계의 숙소를 둘러보세요.
           </Typography>
         </div>
-        <HorizontalGridLarger tileData={tileData2}/>
+        <HorizontalGridLarger tileData={tileData2} />
       </div>
-    </React.Fragment>
+    </BaseTemplate>
   );
 }

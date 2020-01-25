@@ -10,7 +10,7 @@ import logo from '../../../assets/logo.svg';
 import google_login from '../../../assets/google_login.svg';
 
 
-import CopyRight from '../../../components/CopyRight';
+import CopyRight from '../../../components/Footer';
 import { useStyles } from './style';
 
 function LoginUI(): React.ReactElement {

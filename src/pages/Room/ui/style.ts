@@ -6,9 +6,12 @@ export const useStyles = makeStyles(theme => ({
     maxWidth: '100%'
   },
   introContainer:{
-    maxWidth: '50%',
+    maxWidth: '60%',
     alignContent: 'center',
-    display: 'block',
+    display: 'flex',
     marginTop: '2rem'
+  },
+  card:{
+    marginLeft: '3rem'
   }
 }));

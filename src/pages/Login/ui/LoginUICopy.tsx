@@ -11,7 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
-import CopyRight from "../../../components/CopyRight";
+import Footer from "../../../components/Footer";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -113,7 +113,7 @@ function LoginUI(): React.ReactElement {
         </form>
       </div>
       <Box mt={5}>
-        <CopyRight />
+        <Footer />
       </Box>
     </Container>
   );

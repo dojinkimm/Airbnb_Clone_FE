@@ -3,7 +3,7 @@ import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 
 
-export default function CopyRight() {
+export default function Footer() {
   return (
     <React.Fragment>
       <Typography variant="body2" color="textSecondary" align="center">

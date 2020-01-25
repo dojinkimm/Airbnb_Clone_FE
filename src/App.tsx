@@ -22,7 +22,7 @@ const App: React.FC<AppProps> = ({ isLoggedIn }) => {
 
 const LoggedOutRoutes: React.SFC = () => (
   <Switch>
-    <Route exact path="/login" component={LoginPage} />
+    {/* <Route exact path="/login" component={LoginPage} /> */}
     <Route exact path="/search" component={SearchPage} />
     <Route exact path="/room" component={RoomPage} />
     <Route path="/" component={MainPage} />

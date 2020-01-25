@@ -22,7 +22,7 @@ interface Props {
   };
 }
 
-export function Introduction(data: Props): React.ReactElement {
+export default function Introduction(data: Props): React.ReactElement {
   const classes = useStyles();
   const information = data.data;
 

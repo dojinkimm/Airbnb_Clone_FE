@@ -24,7 +24,7 @@ interface Props {
   tileData: Data[];
 }
 
-export function HorizontalGridLarger({ tileData }: Props): React.ReactElement {
+export default function HorizontalGridLarger({ tileData }: Props): React.ReactElement {
   const classes = useStyles();
 
   return (

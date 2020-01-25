@@ -15,7 +15,7 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 
 
-export function Search(): React.ReactElement {
+export default function Search(): React.ReactElement {
   const classes = useStyles();
   const [startDate, setStartDate] = useState<Moment | null>(moment());
   const [focusInput, setFocusInput] = useState<any>('startDate');

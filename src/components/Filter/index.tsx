@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 
 import { useStyles } from './style';
 
-export function Filter(): React.ReactElement {
+export default function Filter(): React.ReactElement {
   const classes = useStyles();
 
   return (

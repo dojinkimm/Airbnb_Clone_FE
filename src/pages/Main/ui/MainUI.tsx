@@ -1,8 +1,7 @@
 import React from 'react';
-import { NavBar } from 'src/components/NavBar';
+import BaseTemplate from 'src/pages/BaseTemplate/BaseTemplate';
 import { useStyles } from './style';
-import { Search } from 'src/components/Search';
-import logo from '../../../assets/logo_transparent.svg';
+import { Search } from 'src/components';
 
 
 export function MainUI(): React.ReactElement {
@@ -11,8 +10,9 @@ export function MainUI(): React.ReactElement {
   return (
     <React.Fragment>
       <div className={classes.back}>
-        <NavBar logo={logo} path={'/'} hasTextField={false} />
-        <Search/>
+        <BaseTemplate isTransparent={true} hasFilter={false}>
+          <Search/>
+        </BaseTemplate>
       </div>
     </React.Fragment>
   );

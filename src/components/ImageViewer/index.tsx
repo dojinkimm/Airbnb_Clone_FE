@@ -12,7 +12,7 @@ interface Props {
   tileData: Data[];
 }
 
-export function ImageViewer({ tileData }: Props): React.ReactElement {
+export default function ImageViewer({ tileData }: Props): React.ReactElement {
   const classes = useStyles();
   const slicedData = tileData.slice(1);
   const firstImg = tileData[0];
@@ -20,15 +20,17 @@ export function ImageViewer({ tileData }: Props): React.ReactElement {
   return (
     <React.Fragment>
       <div className={classes.root}>
-        <img src={firstImg.img} alt="" className={classes.mainImage}/>
+        <div>
+          <img src={firstImg.img} alt="" className={classes.mainImage} />
+        </div>
         <div className={classes.wrapper}>
           {slicedData.map(tile => (
-           <img
-                key={tile.img}
-                className={classes.subImage}
-                src={tile.img}
-                alt=""
-              />
+            <img
+              key={tile.img}
+              className={classes.subImage}
+              src={tile.img}
+              alt=""
+            />
           ))}
         </div>
       </div>

@@ -17,7 +17,7 @@ interface Props {
   hasTextField: boolean;
 }
 
-export function NavBar({
+export default function Header({
   logo,
   path,
   hasTextField

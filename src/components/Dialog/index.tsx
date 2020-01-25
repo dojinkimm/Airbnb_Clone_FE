@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 
 import { useStyles } from './style';
 
-export function Dialog(): React.ReactElement {
+export default function Dialog(): React.ReactElement {
   const classes = useStyles();
 
   return (
