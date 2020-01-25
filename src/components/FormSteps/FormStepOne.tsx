@@ -1,45 +1,161 @@
 import React, { useState } from 'react';
-import { useStyles } from '../../pages/UploadRoom/ui/style';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import { useStyles, PrettoSlider } from './style';
 
 export function FormStepOne(): React.ReactElement {
   const classes = useStyles();
+  // 욕실수
+  // checkbox로 편의시설 뭐뭐있는지
+
+  const [value, setValue] = useState<number>(30);
+
+  const handleChange = (event: any, newValue: number | number[]) => {
+    setValue(newValue as number);
+  };
+  const [state, setState] = useState<{
+    age: string | number;
+    name: string;
+  }>({
+    age: '',
+    name: 'hai'
+  });
+
+  const handleChangeSelect = (name: keyof typeof state) => (
+    event: React.ChangeEvent<{ value: unknown }>
+  ) => {
+    setState({
+      ...state,
+      [name]: event.target.value
+    });
+  };
+
+  const [checkbox, setCheckboxState] = useState({
+    wifi: false,
+    parking: false,
+    kitchen: false
+  });
+
+  const handleChangeCheckbox = (name: string) => (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCheckboxState({ ...checkbox, [name]: event.target.checked });
+  };
+
+  const { wifi, parking, kitchen } = checkbox;
 
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Payment method
-      </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
-          <TextField required id="cardName" label="Name on card" fullWidth />
+        <Grid item xs={12}>
+          숙소 이름
+          <TextField id="name" variant="outlined" fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardNumber" label="Card number" fullWidth />
+          최대 숙박 인원
+          <TextField required id="capacity" variant="outlined" fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="expDate" label="Expiry date" fullWidth />
+          침실의 수
+          <TextField required id="capacity" variant="outlined" fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField
-            required
-            id="cvv"
-            label="CVV"
-            helperText="Last three digits on signature strip"
-            fullWidth
-          />
+          침대의 수
+          <TextField required id="bed" variant="outlined" fullWidth />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          욕실의 수
+          <TextField required id="capacity" variant="outlined" fullWidth />
         </Grid>
         <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="saveCard" value="yes" />}
-            label="Remember credit card details for next time"
+          가격
+          <PrettoSlider
+            valueLabelDisplay="auto"
+            onChange={handleChange}
+            aria-label="pretto slider"
+            max={10000}
+            defaultValue={value}
           />
         </Grid>
+        <Grid item xs={12} md={6}>
+          체크인
+          <TextField required id="capacity" variant="outlined" fullWidth />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          체크아웃
+          <TextField required id="capacity" variant="outlined" fullWidth />
+        </Grid>
+        <Grid item xs={12}>
+          집 유형
+          <FormControl
+            variant="outlined"
+            className={classes.formControl}
+            fullWidth
+          >
+            <Select
+              native
+              value={state.age}
+              onChange={handleChangeSelect('age')}
+              inputProps={{
+                name: 'age',
+                id: 'outlined-age-native-simple'
+              }}
+            >
+              <option value="" />
+              <option value={'apt'}>아파트</option>
+              <option value={'villa'}>주택</option>
+              <option value={'pansion'}>별채</option>
+              <option value={'unique'}>독특한 숙소</option>
+              <option value={'bandb'}>B&B</option>
+            </Select>
+          </FormControl>
+        </Grid>
+
+        <Grid item xs={12}>
+          편의시설
+          <br />
+          <FormControl component="fieldset">
+            {/* import { Wifi, LocalParking, Kitchen, FreeBreakfast, Tv, LocalLaundryService, AcUnit,   } from '@material-ui/icons'; */}
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={wifi}
+                    onChange={handleChangeCheckbox('wifi')}
+                    value="wifi"
+                  />
+                }
+                label="Wifi"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={parking}
+                    onChange={handleChangeCheckbox('parking')}
+                    value="parking"
+                  />
+                }
+                label="주차 공간"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={kitchen}
+                    onChange={handleChangeCheckbox('kitchen')}
+                    value="kitchen"
+                  />
+                }
+                label="주방"
+              />
+            </FormGroup>
+          </FormControl>
+        </Grid>
       </Grid>
-      </React.Fragment>
+    </React.Fragment>
   );
 }

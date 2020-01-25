@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStyles } from './style';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import { Wifi, LocalParking, Kitchen, FreeBreakfast, Tv, LocalLaundryService, AcUnit,   } from '@material-ui/icons';
 interface Props {
   hasWifi?: boolean;
