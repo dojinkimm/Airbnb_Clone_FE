@@ -1,10 +1,10 @@
 import React from 'react';
 import BaseTemplate from 'src/pages/BaseTemplate/BaseTemplate';
-import { HorizontalGridLarger, HorizontalGrid } from 'src/components';
+import {HorizontalGrid, HorizontalGridLarger } from 'src/components';
 import { useStyles } from './style';
 
 import Typography from '@material-ui/core/Typography';
-
+import Divider from '@material-ui/core/Divider';
 
 import seoul from '../../../assets/city/seoul.jpg';
 import newyork from '../../../assets/city/newyork.jpg';
@@ -125,23 +125,21 @@ export function SearchUI(): React.ReactElement {
   return (
     <BaseTemplate>
       <div className={classes.content}>
-        <div className={classes.instruction}>
+        <Typography className={classes.instruction} variant="subtitle1">
           여행 날짜와 게스트 인원수를 입력하면 1박당 총 요금을 확인할 수
           있습니다.
-        </div>
-        <div className={classes.title}>
+        </Typography>
+        <Divider/>
+
+        <Typography className={classes.title} variant="h5">
           에어비앤비와 함께 전 세계를 여행해보세요
-        </div>
+        </Typography>
         <HorizontalGrid tileData={tileData} />
 
-        <div className={classes.bwtitles}>
-          <Typography className={classes.title}>
+        <div className={classes.bwtitles}/>
+          <Typography variant="h5" className={classes.title}>
             최고 평점을 받은 숙소
           </Typography>
-          <Typography>
-            최고의 평점을 받은 전 세계의 숙소를 둘러보세요.
-          </Typography>
-        </div>
         <HorizontalGridLarger tileData={tileData2} />
       </div>
     </BaseTemplate>

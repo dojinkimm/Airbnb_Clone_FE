@@ -4,20 +4,18 @@ export const useStyles = makeStyles(theme => ({
   content:{
     marginLeft: '4vw',
     marginRight: '4vw',
-    marginTop: '3vh'
+    marginTop: '2vh'
   },
   instruction:{
     color: '#717171',
     fontSize: '14px',
-    borderBottom: `1px solid ${theme.palette.divider}`,
-    marginBottom: '50px',
-    paddingBotom: '50px'
+    marginBottom: '2vh',
   },
   title:{
-    fontSize: '22px',
-    fontWeight: "bold"
+    marginTop: '4vh',
+    marginBottom: '1vh',
   },
   bwtitles:{
-    marginTop: '10vh'
+    marginTop: '8vh'
   }
 }));
