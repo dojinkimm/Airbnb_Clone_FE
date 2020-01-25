@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles(theme => ({
   container:{
     padding: '0px',
-    maxWidth: '100%'
+    maxWidth: '100%',
   },
   introContainer:{
     maxWidth: '60%',
@@ -11,7 +11,7 @@ export const useStyles = makeStyles(theme => ({
     display: 'flex',
     marginTop: '2rem'
   },
-  card:{
+  searchCard:{
     marginLeft: '3rem'
   }
 }));

@@ -4,8 +4,10 @@ export { default as Dialog } from './Dialog';
 export { default as Filter } from './Filter';
 export { default as HorizontalGrid } from './HorizontalGrid';
 export { default as HorizontalGridLarger } from './HorizontalGridLarger';
+export { default as ImageDisplay } from './ImageDisplay';
 export { default as ImageViewer } from './ImageViewer';
 export { default as Introduction } from './Introduction';
 export { default as Search } from './Search';
 export { default as SearchCard } from './SearchCard';
-
+export { default as ReservationCalendar } from './ReservationCalendar';
+export { default as Review } from './Review';

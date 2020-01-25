@@ -1,6 +1,6 @@
 import React from 'react';
 import BaseTemplate from 'src/pages/BaseTemplate/BaseTemplate';
-import {ImageViewer, Introduction, SearchCard} from 'src/components';
+import {ImageDisplay, Introduction, SearchCard} from 'src/components';
 import { useStyles } from './style';
 import Container from '@material-ui/core/Container';
 
@@ -55,13 +55,13 @@ export function RoomUI(): React.ReactElement {
     <BaseTemplate hasFilter={false}>
       <Container className={classes.container}>
         <Container className={classes.container}>
-          <ImageViewer tileData={tileData} />
+          <ImageDisplay tileData={tileData} />
         </Container>
         <Container className={classes.introContainer}>
           <div>
             <Introduction data={information}/>
           </div>
-          <div style={{ marginLeft: '5rem' }}>
+          <div className={classes.searchCard}>
             <SearchCard />
           </div>
         </Container>

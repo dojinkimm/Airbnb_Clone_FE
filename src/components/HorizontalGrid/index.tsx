@@ -38,13 +38,3 @@ export default function HorizontalGrid({ tileData }: Props): React.ReactElement 
     </React.Fragment>
   );
 }
-/* <GridListTile key={tile.img} className={classes.gridItem}>
-          
-          <GridListTileBar
-            title={tile.title}
-            classes={{
-              root: classes.titleBar,
-              title: classes.title
-            }}
-          />
-        </GridListTile> */
