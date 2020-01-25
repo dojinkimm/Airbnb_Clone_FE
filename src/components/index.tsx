@@ -12,3 +12,8 @@ export { default as SearchCard } from './SearchCard';
 export { default as ReservationCalendar } from './ReservationCalendar';
 export { default as Review } from './Review';
 export { default as Convenience } from './Convenience';
+export {default as FormHeader} from './FormHeader';
+
+export {FormStepOne} from './FormSteps';
+export {FormStepTwo} from './FormSteps';
+export {FormStepThree} from './FormSteps';

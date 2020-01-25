@@ -6,6 +6,7 @@ import MainPage from './pages/Main/MainPage';
 import LoginPage from './pages/Login/LoginPage';
 import SearchPage from './pages/Search/SearchPage';
 import RoomPage from './pages/Room/RoomPage';
+import UploadRoomPage from './pages/UploadRoom/UploadRoomPage';
 import './App.css';
 
 interface AppProps {
@@ -22,9 +23,10 @@ const App: React.FC<AppProps> = ({ isLoggedIn }) => {
 
 const LoggedOutRoutes: React.SFC = () => (
   <Switch>
-    {/* <Route exact path="/login" component={LoginPage} /> */}
+    <Route exact path="/login" component={LoginPage} />
     <Route exact path="/search" component={SearchPage} />
     <Route exact path="/room" component={RoomPage} />
+    <Route exact path="/upload-room" component={UploadRoomPage} />
     <Route path="/" component={MainPage} />
   </Switch>
 );
