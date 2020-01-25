@@ -6,13 +6,11 @@ export const useStyles = makeStyles(theme => ({
   },
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
-    height: '6vh'
+    height: '8vh',
   },
   toolbarSearch: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(2),
     padding: theme.spacing(0),
+    flex:0.5,
   },
-  grow: {
-    flexGrow: 1
-  }
 }));

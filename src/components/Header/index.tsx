@@ -10,6 +10,7 @@ import TextField from '@material-ui/core/TextField';
 import AppBar from '@material-ui/core/AppBar';
 
 import { useStyles } from './style';
+import 'src/styles/normalize.css';
 
 interface Props {
   logo: string;
@@ -44,7 +45,7 @@ export default function Header({
             </Link>
           </IconButton>
 
-          {hasTextField ? (
+          {hasTextField && (
             <TextField
               className={classes.toolbarSearch}
               id="input-with-icon-textfield"
@@ -57,11 +58,8 @@ export default function Header({
                 )
               }}
             />
-          ) : (
-            ''
           )}
-
-          <div className={classes.grow} />
+          <div className="flex-grow" />
           <div>
             <Button size="small">한국어(KR)</Button>
             <Button size="small">₩ KRW</Button>

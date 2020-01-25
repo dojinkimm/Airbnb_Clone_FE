@@ -1,5 +1,5 @@
 import React from 'react';
-import {Header, Footer, Filter} from '../../components';
+import {Header, Filter} from '../../components';
 
 import logo_transparent from 'src/assets/logo_transparent.svg';
 import logo from 'src/assets/logo.svg';

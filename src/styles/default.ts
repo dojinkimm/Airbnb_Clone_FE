@@ -1,5 +1,6 @@
 const theme = {
   palette: {
+    divider: '#EBEBEB',
     primary: '#FF2D54',
     secondary: '#55A6FC',
     danger: '#d32f2f',

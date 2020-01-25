@@ -10,8 +10,6 @@ import detail3 from '../../../assets/detail/detail3.jpg';
 import detail4 from '../../../assets/detail/detail4.jpg';
 import detail5 from '../../../assets/detail/detail5.jpg';
 
-import '../../../styles/normalize.css';
-
 const tileData = [
   {
     id: 1,
