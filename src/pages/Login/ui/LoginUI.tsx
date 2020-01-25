@@ -9,8 +9,7 @@ import Container from '@material-ui/core/Container';
 import logo from '../../../assets/logo.svg';
 import google_login from '../../../assets/google_login.svg';
 
-
-import CopyRight from '../../../components/Footer';
+import {Footer} from 'src/components';
 import { useStyles } from './style';
 
 function LoginUI(): React.ReactElement {
@@ -44,7 +43,7 @@ function LoginUI(): React.ReactElement {
         </form>
       </div>
       <Box mt={5}>
-        <CopyRight />
+        <Footer />
       </Box>
     </Container>
   );
