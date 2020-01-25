@@ -11,3 +11,4 @@ export { default as Search } from './Search';
 export { default as SearchCard } from './SearchCard';
 export { default as ReservationCalendar } from './ReservationCalendar';
 export { default as Review } from './Review';
+export { default as Convenience } from './Convenience';

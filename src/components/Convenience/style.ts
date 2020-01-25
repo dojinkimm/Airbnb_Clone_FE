@@ -13,16 +13,8 @@ export const useStyles = makeStyles(theme => ({
     marginTop: '1.5rem',
     marginBottom: '1.5rem'
   },
-  growFlex:{
-    flex:1
-  },
-  subHeader:{
+
+  icons:{
     marginRight: '2rem',
   },
-  icons:{
-    marginRight: '1.5rem',
-  },
-  fullWidth:{
-    width: '100%'
-  }
 }));

@@ -13,4 +13,7 @@ export const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0),
     flex:0.5,
   },
+  tabs:{
+    color: '#FFFFFF'
+  },
 }));

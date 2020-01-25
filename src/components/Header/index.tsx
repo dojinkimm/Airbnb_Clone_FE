@@ -25,6 +25,7 @@ export default function Header({
 }: Props): React.ReactElement {
   const classes = useStyles();
   const toolbar = hasTextField ? classes.toolbar : '';
+  const tabs = hasTextField? '': classes.tabs;
 
   return (
     <React.Fragment>
@@ -61,14 +62,14 @@ export default function Header({
           )}
           <div className="flex-grow" />
           <div>
-            <Button size="small">한국어(KR)</Button>
-            <Button size="small">₩ KRW</Button>
-            <Button size="small">Sign up</Button>
+            <Button size="small" className={tabs}>한국어(KR)</Button>
+            <Button size="small" className={tabs}>₩ KRW</Button>
+            <Button size="small" className={tabs}>Sign up</Button>
             <Link
               to={{
                 pathname: '/login'
               }}
-            ><Button size="small">Login</Button></Link>
+            ><Button size="small" className={tabs}>Login</Button></Link>
           </div>
         </Toolbar>
       </AppBar>

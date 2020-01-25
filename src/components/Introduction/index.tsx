@@ -7,15 +7,13 @@ import {
   House,
   LocationOn,
   LocalLaundryServiceSharp,
-  Star,
-  Wifi,
-  LocalParking,
-  Kitchen,
+  ThumbUp,
   KingBed
 } from '@material-ui/icons';
 import Button from '@material-ui/core/Button';
 import ReservationCalendar from '../ReservationCalendar';
 import Review from '../Review';
+import Convenience from '../Convenience';
 
 interface Props {
   data: {
@@ -85,7 +83,7 @@ export default function Introduction(data: Props): React.ReactElement {
 
         {information.isSuperhost && (
           <div className={classes.flexMargin}>
-            <Star className={classes.icons} />
+            <ThumbUp className={classes.icons} />
             <div>
               <Typography>Anna님은 슈퍼호스트입니다</Typography>
               <Typography>
@@ -109,7 +107,7 @@ export default function Introduction(data: Props): React.ReactElement {
 
       <Button
         className={`${classes.marginVertical} ${classes.fullWidth}`}
-        variant="contained"
+        variant="outlined"
       >
         이 설명을 한국어로 번역하기
       </Button>
@@ -124,19 +122,7 @@ export default function Introduction(data: Props): React.ReactElement {
       <Divider />
 
       <div className={classes.marginVertical}>
-        <Typography>편의시설</Typography>
-        <div className={classes.flexMargin}>
-          <Wifi className={classes.icons} />
-          <Typography>무선 인터넷</Typography>
-        </div>
-        <div className={classes.flexMargin}>
-          <LocalParking className={classes.icons} />
-          <Typography>건물 내 무료주차</Typography>
-        </div>
-        <div className={classes.flexMargin}>
-          <Kitchen className={classes.icons} />
-          <Typography>주방</Typography>
-        </div>
+        <Convenience/>
       </div>
       <Divider />
 
