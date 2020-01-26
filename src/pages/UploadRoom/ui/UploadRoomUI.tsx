@@ -47,10 +47,22 @@ export function UploadRoomUI(): React.ReactElement {
     setActiveStep(activeStep - 1);
   };
 
+  // const formHandler = () {
+  //   axios.post('/api/register', formFields)
+  //     .then(function(response){
+  //       console.log(response);
+  //       //Perform action based on response
+  //   })
+  //     .catch(function(error){
+  //       console.log(error);
+  //       //Perform action based on error
+  //     });
+  //  }
+
   return (
     <React.Fragment>
       <FormHeader />
-
+      <form >
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <MuiThemeProvider theme={stepperStyles}>
@@ -71,9 +83,10 @@ export function UploadRoomUI(): React.ReactElement {
                 </Button>
               )}
               <Button
+                type={activeStep === steps.length - 1 ? 'submit' : 'button'}
                 variant="contained"
                 onClick={handleNext}
-                disabled={activeStep === steps.length - 1 ? true : false}
+                // disabled={activeStep === steps.length - 1 ? true : false}
                 className={classes.buttonGo}
               >
                 {activeStep === steps.length - 1 ? '완료' : '다음'}
@@ -82,6 +95,7 @@ export function UploadRoomUI(): React.ReactElement {
           </React.Fragment>
         </Paper>
       </main>
+      </form>
     </React.Fragment>
   );
 }

@@ -38,7 +38,11 @@ export function FormStepOne(): React.ReactElement {
   const [checkbox, setCheckboxState] = useState({
     wifi: false,
     parking: false,
-    kitchen: false
+    kitchen: false,
+    breakfast: false,
+    tv: false,
+    laundry: false,
+    ac: false,
   });
 
   const handleChangeCheckbox = (name: string) => (
@@ -47,22 +51,22 @@ export function FormStepOne(): React.ReactElement {
     setCheckboxState({ ...checkbox, [name]: event.target.checked });
   };
 
-  const { wifi, parking, kitchen } = checkbox;
+  const { wifi, parking, kitchen, breakfast, tv, laundry, ac } = checkbox;
 
   return (
     <React.Fragment>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           숙소 이름
-          <TextField id="name" variant="outlined" fullWidth />
+          <TextField required id="name" variant="outlined" fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
           최대 숙박 인원
-          <TextField required id="capacity" variant="outlined" fullWidth />
+          <TextField required id="capacity" variant="outlined" fullWidth/>
         </Grid>
         <Grid item xs={12} md={6}>
           침실의 수
-          <TextField required id="capacity" variant="outlined" fullWidth />
+          <TextField required id="bedroom" variant="outlined" fullWidth/>
         </Grid>
         <Grid item xs={12} md={6}>
           침대의 수
@@ -70,11 +74,12 @@ export function FormStepOne(): React.ReactElement {
         </Grid>
         <Grid item xs={12} md={6}>
           욕실의 수
-          <TextField required id="capacity" variant="outlined" fullWidth />
+          <TextField required id="bath" variant="outlined" fullWidth />
         </Grid>
         <Grid item xs={12}>
           가격
           <PrettoSlider
+          id="price"
             valueLabelDisplay="auto"
             onChange={handleChange}
             aria-label="pretto slider"
@@ -84,15 +89,16 @@ export function FormStepOne(): React.ReactElement {
         </Grid>
         <Grid item xs={12} md={6}>
           체크인
-          <TextField required id="capacity" variant="outlined" fullWidth />
+          <TextField required id="checkin" placeholder="예) 14:00" variant="outlined" fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
           체크아웃
-          <TextField required id="capacity" variant="outlined" fullWidth />
+          <TextField required id="checkout" placeholder="예) 11:00" variant="outlined" fullWidth />
         </Grid>
         <Grid item xs={12}>
           집 유형
           <FormControl
+          id="houseType"
             variant="outlined"
             className={classes.formControl}
             fullWidth
@@ -119,8 +125,7 @@ export function FormStepOne(): React.ReactElement {
         <Grid item xs={12}>
           편의시설
           <br />
-          <FormControl component="fieldset">
-            {/* import { Wifi, LocalParking, Kitchen, FreeBreakfast, Tv, LocalLaundryService, AcUnit,   } from '@material-ui/icons'; */}
+          <FormControl component="fieldset" id="convenience">
             <FormGroup>
               <FormControlLabel
                 control={
@@ -151,6 +156,46 @@ export function FormStepOne(): React.ReactElement {
                   />
                 }
                 label="주방"
+              />
+                <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={breakfast}
+                    onChange={handleChangeCheckbox('breakfast')}
+                    value="breakfast"
+                  />
+                }
+                label="조식 제공"
+              />
+                <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={tv}
+                    onChange={handleChangeCheckbox('tv')}
+                    value="tv"
+                  />
+                }
+                label="TV"
+              />
+                <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={laundry}
+                    onChange={handleChangeCheckbox('laundry')}
+                    value="laundry"
+                  />
+                }
+                label="세탁기"
+              />
+                <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={ac}
+                    onChange={handleChangeCheckbox('ac')}
+                    value="ac"
+                  />
+                }
+                label="에어컨"
               />
             </FormGroup>
           </FormControl>

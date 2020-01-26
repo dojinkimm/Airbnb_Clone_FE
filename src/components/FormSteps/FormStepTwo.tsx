@@ -1,96 +1,107 @@
 import React, { useState } from 'react';
-import { useStyles } from '../../pages/UploadRoom/ui/style';
+import { useStyles } from './style';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
+import {country} from 'src/common/country';
 
 export function FormStepTwo(): React.ReactElement {
   const classes = useStyles();
 
+  const [value, setValue] = useState<number>(30);
+
+  const [state, setState] = useState<{
+    age: string | number;
+    name: string;
+  }>({
+    age: '',
+    name: 'hai'
+  });
+
+  const handleChangeSelect = (name: keyof typeof state) => (
+    event: React.ChangeEvent<{ value: unknown }>
+  ) => {
+    setState({
+      ...state,
+      [name]: event.target.value
+    });
+  };
+
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Shipping address
-      </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="firstName"
-            name="firstName"
-            label="First name"
+      <Grid item xs={12}>
+          국가/지역
+          <FormControl
+          id="country"
+            variant="outlined"
+            className={classes.formControl}
             fullWidth
-            autoComplete="fname"
-          />
+          >
+            <Select
+              native
+              value={state.age}
+              onChange={handleChangeSelect('age')}
+              inputProps={{
+                name: 'age',
+                id: 'outlined-age-native-simple'
+              }}
+            >
+              <option value="" />
+              {country.map(c =>(
+                <option value={`${c.abbreviation}`}>{c.country}</option>
+                ))}
+            </Select>
+          </FormControl>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="lastName"
-            name="lastName"
-            label="Last name"
-            fullWidth
-            autoComplete="lname"
-          />
-        </Grid>
-        <Grid item xs={12}>
+          시/도
           <TextField
             required
             id="address1"
             name="address1"
-            label="Address line 1"
+            placeholder="예) 서울특별시"
+            variant="outlined"
             fullWidth
             autoComplete="billing address-line1"
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={6}>
+          시/군/구
           <TextField
             id="address2"
             name="address2"
-            label="Address line 2"
+            variant="outlined"
+            placeholder="예) 강남구"
             fullWidth
             autoComplete="billing address-line2"
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
+          도로명 주소
           <TextField
             required
-            id="city"
-            name="city"
-            label="City"
+            id="street1"
+            name="street1"
+            variant="outlined"
+            placeholder="예) 언주로 307"
             fullWidth
             autoComplete="billing address-level2"
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField id="state" name="state" label="State/Province/Region" fullWidth />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="zip"
-            name="zip"
-            label="Zip / Postal code"
-            fullWidth
-            autoComplete="billing postal-code"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="country"
-            name="country"
-            label="Country"
-            fullWidth
-            autoComplete="billing country"
-          />
-        </Grid>
         <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-            label="Use this address for payment details"
+          동호수 (선택사항)
+          <TextField
+            id="street2"
+            name="street2"
+            variant="outlined"
+            placeholder="예) 35동 3층 307호"
+            fullWidth
+            autoComplete="billing address-level3"
           />
         </Grid>
       </Grid>
