@@ -5,121 +5,164 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import { useStyles, PrettoSlider } from './style';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Input from '@material-ui/core/Input';
+import { PrettoSlider } from './style';
 
-export function FormStepOne(): React.ReactElement {
-  const classes = useStyles();
-  // 욕실수
-  // checkbox로 편의시설 뭐뭐있는지
+import { houseTypes, convenience } from 'src/common/data';
 
-  const [value, setValue] = useState<number>(30);
+interface onChangeEvent {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-  const handleChange = (event: any, newValue: number | number[]) => {
-    setValue(newValue as number);
-  };
-  const [state, setState] = useState<{
-    age: string | number;
-    name: string;
-  }>({
-    age: '',
-    name: 'hai'
-  });
+export interface Props {
+  FormInputs: {
+    name: onChangeEvent;
+    capacity: onChangeEvent;
+    bedroom: onChangeEvent;
+    bed: onChangeEvent;
+    bath: onChangeEvent;
+    priceSlider: {
+      value: number;
+      onChange: any;
+    };
+    priceInput: {
+      value: number;
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    };
+    checkin: onChangeEvent;
+    checkout: onChangeEvent;
+    houseType: {
+      value: string;
+      onChange:(e: React.ChangeEvent<HTMLInputElement>) => void;
+    };
+    convenience: any;
+  }
+}
 
-  const handleChangeSelect = (name: keyof typeof state) => (
-    event: React.ChangeEvent<{ value: unknown }>
-  ) => {
-    setState({
-      ...state,
-      [name]: event.target.value
-    });
-  };
-
-  const [checkbox, setCheckboxState] = useState({
-    wifi: false,
-    parking: false,
-    kitchen: false,
-    breakfast: false,
-    tv: false,
-    laundry: false,
-    ac: false,
-  });
-
-  const handleChangeCheckbox = (name: string) => (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setCheckboxState({ ...checkbox, [name]: event.target.checked });
-  };
-
-  const { wifi, parking, kitchen, breakfast, tv, laundry, ac } = checkbox;
+export function FormStepOne({ FormInputs }: Props): React.ReactElement {
 
   return (
     <React.Fragment>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           숙소 이름
-          <TextField required id="name" variant="outlined" fullWidth />
+          <TextField
+            required
+            name="name"
+            variant="outlined"
+            type="text"
+            fullWidth
+            {...FormInputs.name}
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           최대 숙박 인원
-          <TextField required id="capacity" variant="outlined" fullWidth/>
+          <TextField
+            required
+            name="capacity"
+            variant="outlined"
+            type="text"
+            fullWidth
+            {...FormInputs.capacity}
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           침실의 수
-          <TextField required id="bedroom" variant="outlined" fullWidth/>
+          <TextField
+            required
+            name="bedroom"
+            variant="outlined"
+            type="text"
+            fullWidth
+            {...FormInputs.bedroom}
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           침대의 수
-          <TextField required id="bed" variant="outlined" fullWidth />
+          <TextField
+            required
+            name="bed"
+            variant="outlined"
+            type="text"
+            fullWidth
+            {...FormInputs.bed}
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           욕실의 수
-          <TextField required id="bath" variant="outlined" fullWidth />
+          <TextField
+            required
+            name="bath"
+            variant="outlined"
+            type="text"
+            fullWidth
+            {...FormInputs.bath}
+          />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} md={10}>
           가격
           <PrettoSlider
-          id="price"
+            name="price"
             valueLabelDisplay="auto"
-            onChange={handleChange}
             aria-label="pretto slider"
-            max={10000}
-            defaultValue={value}
+            max={5000}
+            {...FormInputs.priceSlider}
+          />
+        </Grid>
+        <Grid item xs={12} md={2}>
+          <Input
+            {...FormInputs.priceInput}
+            startAdornment={<InputAdornment position="start">$</InputAdornment>}
+            inputProps={{
+              step: 10,
+              min: 0,
+              max: 5000,
+              type: 'number',
+              'aria-labelledby': 'input-slider'
+            }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           체크인
-          <TextField required id="checkin" placeholder="예) 14:00" variant="outlined" fullWidth />
+          <TextField
+            required
+            name="checkin"
+            placeholder="예) 14:00"
+            variant="outlined"
+            type="text"
+            fullWidth
+            {...FormInputs.checkin}
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           체크아웃
-          <TextField required id="checkout" placeholder="예) 11:00" variant="outlined" fullWidth />
+          <TextField
+            required
+            name="checkout"
+            placeholder="예) 11:00"
+            variant="outlined"
+            type="text"
+            fullWidth
+            {...FormInputs.checkout}
+          />
         </Grid>
         <Grid item xs={12}>
           집 유형
-          <FormControl
-          id="houseType"
+          <TextField
+            id="outlined-select-currency"
+            select
+            {...FormInputs.houseType}
             variant="outlined"
-            className={classes.formControl}
             fullWidth
           >
-            <Select
-              native
-              value={state.age}
-              onChange={handleChangeSelect('age')}
-              inputProps={{
-                name: 'age',
-                id: 'outlined-age-native-simple'
-              }}
-            >
-              <option value="" />
-              <option value={'apt'}>아파트</option>
-              <option value={'villa'}>주택</option>
-              <option value={'pansion'}>별채</option>
-              <option value={'unique'}>독특한 숙소</option>
-              <option value={'bandb'}>B&B</option>
-            </Select>
-          </FormControl>
+            {houseTypes.map(h => (
+              <MenuItem key={h.value} value={h.label}>
+                {h.label}
+              </MenuItem>
+            ))}
+          </TextField>
         </Grid>
 
         <Grid item xs={12}>
@@ -127,76 +170,17 @@ export function FormStepOne(): React.ReactElement {
           <br />
           <FormControl component="fieldset" id="convenience">
             <FormGroup>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={wifi}
-                    onChange={handleChangeCheckbox('wifi')}
-                    value="wifi"
-                  />
-                }
-                label="Wifi"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={parking}
-                    onChange={handleChangeCheckbox('parking')}
-                    value="parking"
-                  />
-                }
-                label="주차 공간"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={kitchen}
-                    onChange={handleChangeCheckbox('kitchen')}
-                    value="kitchen"
-                  />
-                }
-                label="주방"
-              />
+              {convenience.map((conv) => (
                 <FormControlLabel
+                key={conv.id}
                 control={
                   <Checkbox
-                    checked={breakfast}
-                    onChange={handleChangeCheckbox('breakfast')}
-                    value="breakfast"
+                  {...FormInputs.convenience[`${conv.value}`]}
                   />
                 }
-                label="조식 제공"
+                label={conv.label}
               />
-                <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={tv}
-                    onChange={handleChangeCheckbox('tv')}
-                    value="tv"
-                  />
-                }
-                label="TV"
-              />
-                <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={laundry}
-                    onChange={handleChangeCheckbox('laundry')}
-                    value="laundry"
-                  />
-                }
-                label="세탁기"
-              />
-                <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={ac}
-                    onChange={handleChangeCheckbox('ac')}
-                    value="ac"
-                  />
-                }
-                label="에어컨"
-              />
+              ))}
             </FormGroup>
           </FormControl>
         </Grid>

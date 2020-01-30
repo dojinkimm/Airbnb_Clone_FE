@@ -1,3 +1,63 @@
+export const houseTypes = [
+    {
+      value: 'apt',
+      label: '아파트',
+    },
+    {
+      value: 'villa',
+      label: '주택',
+    },
+    {
+      value: 'pansion',
+      label: '별채',
+    },
+    {
+      value: 'unique',
+      label: '독특한 숙소',
+    },
+    {
+        value: 'bandb',
+        label: 'B&B'
+    }
+  ];
+
+export const convenience = [
+{
+    id: 0,
+    value: 'wifi',
+    label: 'Wifi',
+},
+{
+    id: 1,
+    value: 'parking',
+    label: '주차 공간',
+},
+{
+    id: 2,
+    value: 'kitchen',
+    label: '주방',
+},
+{
+    id: 3,
+    value: 'breakfast',
+    label: '조식 제공',
+},
+{
+    id: 4,
+    value: 'tv',
+    label: 'TV'
+},
+{
+    id: 5,
+    value: 'laundry',
+    label: '세탁기'
+},
+{
+    id: 6,
+    value: 'ac',
+    label: '에어컨'
+}
+];
 
 export const country = [
     {
