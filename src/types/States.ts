@@ -1,5 +1,3 @@
-import {convenience} from 'src/common/data';
-
 export interface BasicForm {
   name: string;
   capacity: number;
@@ -30,5 +28,6 @@ export interface AddressForm {
 }
 
 export interface ImageForm{
-    images: string[];
+    imagePreview: string[];
+    imageFile: File[];
 }

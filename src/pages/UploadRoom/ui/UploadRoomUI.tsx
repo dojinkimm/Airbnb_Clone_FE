@@ -17,11 +17,11 @@ import {
   BasicFormDispatch,
   AddressFormState,
   AddressFormDispatch,
+  ImageFormState,
   ImageFormDispatch,
   SubmitDispatch
 } from '../store';
 
-import { convenience } from 'src/common/data';
 
 function getSteps() {
   return [
@@ -31,14 +31,15 @@ function getSteps() {
   ];
 }
 
-function getStepContent(step: number, basicForm: any, addressForm: any) {
+function getStepContent(step: number, basicForm: any, addressForm: any, imageForm: any) {
   switch (step) {
     case 0:
       return <FormStepOne FormInputs={basicForm} />;
     case 1:
       return <FormStepTwo FormInputs={addressForm} />;
     case 2:
-      return <FormStepThree />;
+      return <FormStepThree FormInputs={imageForm}/>;
+
     default:
       throw new Error('Unknown step');
   }
@@ -61,7 +62,10 @@ export function UploadRoomUI(): React.ReactElement {
   const basicFormDispatcher = useContext(BasicFormDispatch);
   const addressFormState = useContext(AddressFormState);
   const addressFormDispatcher = useContext(AddressFormDispatch);
-  // const imageFormDispatcher = useContext(ImageFormDispatch);
+  const imageFromState = useContext(ImageFormState);
+  const imageFormDispatcher = useContext(ImageFormDispatch);
+
+
   const setSubmit = useContext(SubmitDispatch);
   const basicFormHandler = {
     name: {
@@ -167,34 +171,37 @@ export function UploadRoomUI(): React.ReactElement {
           basicFormState.convenience.wifi = !basicFormState.convenience.wifi;
           basicFormDispatcher({
             type: 'convenience',
-            value: {...basicFormState.convenience}
+            value: { ...basicFormState.convenience }
           });
         }
       },
       parking: {
         onChange: (e: React.ChangeEvent<HTMLInputElement>): void => {
-          basicFormState.convenience.parking = !basicFormState.convenience.parking;
+          basicFormState.convenience.parking = !basicFormState.convenience
+            .parking;
           basicFormDispatcher({
             type: 'convenience',
-            value: {...basicFormState.convenience}
+            value: { ...basicFormState.convenience }
           });
         }
       },
       kitchen: {
         onChange: (e: React.ChangeEvent<HTMLInputElement>): void => {
-          basicFormState.convenience.kitchen = !basicFormState.convenience.kitchen;
+          basicFormState.convenience.kitchen = !basicFormState.convenience
+            .kitchen;
           basicFormDispatcher({
             type: 'convenience',
-            value: {...basicFormState.convenience}
+            value: { ...basicFormState.convenience }
           });
         }
       },
       breakfast: {
         onChange: (e: React.ChangeEvent<HTMLInputElement>): void => {
-          basicFormState.convenience.breakfast = !basicFormState.convenience.breakfast;
+          basicFormState.convenience.breakfast = !basicFormState.convenience
+            .breakfast;
           basicFormDispatcher({
             type: 'convenience',
-            value: {...basicFormState.convenience}
+            value: { ...basicFormState.convenience }
           });
         }
       },
@@ -203,16 +210,17 @@ export function UploadRoomUI(): React.ReactElement {
           basicFormState.convenience.tv = !basicFormState.convenience.tv;
           basicFormDispatcher({
             type: 'convenience',
-            value: {...basicFormState.convenience}
+            value: { ...basicFormState.convenience }
           });
         }
       },
       laundry: {
         onChange: (e: React.ChangeEvent<HTMLInputElement>): void => {
-          basicFormState.convenience.laundry = !basicFormState.convenience.laundry;
+          basicFormState.convenience.laundry = !basicFormState.convenience
+            .laundry;
           basicFormDispatcher({
             type: 'convenience',
-            value: {...basicFormState.convenience}
+            value: { ...basicFormState.convenience }
           });
         }
       },
@@ -221,7 +229,7 @@ export function UploadRoomUI(): React.ReactElement {
           basicFormState.convenience.ac = !basicFormState.convenience.ac;
           basicFormDispatcher({
             type: 'convenience',
-            value: {...basicFormState.convenience}
+            value: { ...basicFormState.convenience }
           });
         }
       }
@@ -277,6 +285,23 @@ export function UploadRoomUI(): React.ReactElement {
     }
   };
 
+  const imageFormHandler = {
+    imageHandler: {
+      onChange: (e: React.ChangeEvent<HTMLInputElement>): void => {
+        if (!e || e.target.files === null) return;
+        imageFormDispatcher({
+          type: 'imagePreview',
+          value: [...imageFromState.imagePreview, URL.createObjectURL(e.target.files[0])]
+        });
+        imageFormDispatcher({
+          type: 'imageFile',
+          value: [...imageFromState.imageFile, e.target.files[0]]
+        });
+      }
+    },
+    imageView: imageFromState.imagePreview
+  };
+
   const onSubmit = (): void => setSubmit(true);
 
   return (
@@ -294,36 +319,35 @@ export function UploadRoomUI(): React.ReactElement {
               ))}
             </Stepper>
           </MuiThemeProvider>
-          <React.Fragment>
-            <form onSubmit={onSubmit} noValidate>
-              {getStepContent(activeStep, basicFormHandler, addressFormHandler)}
-              <div className={classes.buttons}>
-                {activeStep !== 0 && (
-                  <Button onClick={handleBack} className={classes.buttonBack}>
-                    뒤로
-                  </Button>
-                )}
-                {activeStep === steps.length - 1 ? (
-                  <Button
-                    onClick={onSubmit}
-                    variant="contained"
-                    className={classes.buttonGo}
-                  >
-                    완료
-                  </Button>
-                ) : (
-                  <Button
-                    type="button"
-                    variant="contained"
-                    onClick={handleNext}
-                    className={classes.buttonGo}
-                  >
-                    다음
-                  </Button>
-                )}
-              </div>
-            </form>
-          </React.Fragment>
+
+          <form onSubmit={onSubmit} noValidate>
+            {getStepContent(activeStep, basicFormHandler, addressFormHandler, imageFormHandler)}
+            <div className={classes.buttons}>
+              {activeStep !== 0 && (
+                <Button onClick={handleBack} className={classes.buttonBack}>
+                  뒤로
+                </Button>
+              )}
+              {activeStep === steps.length - 1 ? (
+                <Button
+                  onClick={onSubmit}
+                  variant="contained"
+                  className={classes.buttonGo}
+                >
+                  완료
+                </Button>
+              ) : (
+                <Button
+                  type="button"
+                  variant="contained"
+                  onClick={handleNext}
+                  className={classes.buttonGo}
+                >
+                  다음
+                </Button>
+              )}
+            </div>
+          </form>
         </Paper>
       </main>
     </React.Fragment>

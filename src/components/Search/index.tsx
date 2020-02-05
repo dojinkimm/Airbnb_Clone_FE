@@ -69,34 +69,6 @@ export default function Search(): React.ReactElement {
                     }}
                   />
                 </Grid>
-                {/* <Grid item xs={12} sm={6}>
-                      <TextField
-                        name="checkin"
-                        variant="outlined"
-                        required
-                        fullWidth
-                        id="checkin"
-                        placeholder="년/월/일"
-                        label="체크인"
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                      />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <TextField
-                        variant="outlined"
-                        required
-                        fullWidth
-                        id="lastName"
-                        placeholder="년/월/일"
-                        label="체크아웃"
-                        name="checkout"
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                      />
-                    </Grid> */}
                 <Grid item xs={12}>
                   인원
                   <TextField
