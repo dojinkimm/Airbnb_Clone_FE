@@ -3,28 +3,44 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 
-import {country} from 'src/common/data';
+import { country } from 'src/common/data';
 
-export function FormStepTwo({FormInputs}: any): React.ReactElement {
+interface onChangeEvent {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
+export interface Props {
+  FormInputs: {
+    country: {
+      value: string;
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    };
+    city: onChangeEvent;
+    address: onChangeEvent;
+    street1: onChangeEvent;
+    street2: onChangeEvent;
+  };
+}
+
+export function FormStepTwo({ FormInputs }: Props): React.ReactElement {
   return (
     <React.Fragment>
       <Grid container spacing={3}>
-      <Grid item xs={12}>
+        <Grid item xs={12}>
           국가/지역
           <TextField
-          name="country"
-          select
-          variant="outlined"
-          fullWidth
-          {...FormInputs.country}
-        >
-          {country.map(c => (
-            <MenuItem key={c.country} value={c.country}>
-              {c.country}
-            </MenuItem>
-          ))}
-        </TextField>
+            name="country"
+            select
+            variant="outlined"
+            fullWidth
+            {...FormInputs.country}
+          >
+            {country.map(c => (
+              <MenuItem key={c.country} value={c.country}>
+                {c.country}
+              </MenuItem>
+            ))}
+          </TextField>
         </Grid>
         <Grid item xs={12} sm={6}>
           시/도
@@ -69,6 +85,6 @@ export function FormStepTwo({FormInputs}: any): React.ReactElement {
           />
         </Grid>
       </Grid>
-      </React.Fragment>
+    </React.Fragment>
   );
 }

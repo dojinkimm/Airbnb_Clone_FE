@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -16,7 +16,7 @@ interface onChangeEvent {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export interface Props {
+interface Props {
   FormInputs: {
     name: onChangeEvent;
     capacity: onChangeEvent;
