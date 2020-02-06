@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';
+import MenuItem from '@material-ui/core/MenuItem';
 
 import moment, { Moment } from 'moment';
 import { DateRangePicker } from 'react-dates';
@@ -63,7 +64,14 @@ export default function SearchCard(): React.ReactElement {
                     InputLabelProps={{
                       shrink: true
                     }}
-                  />
+                  >
+                    {[1,2,3,4,5].map(person => (
+                      <MenuItem key={person} value={person}>
+                          {person}
+                      </MenuItem>
+                    ))}
+
+                  </TextField>
                 </Grid>
               </Grid>
               <Button type="submit" variant="contained" className={classes.button}>

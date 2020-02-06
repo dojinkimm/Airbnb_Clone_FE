@@ -63,7 +63,7 @@ export function FormStepOne({ FormInputs }: Props): React.ReactElement {
             required
             name="capacity"
             variant="outlined"
-            type="text"
+            type="number"
             fullWidth
             {...FormInputs.capacity}
           />
@@ -74,7 +74,7 @@ export function FormStepOne({ FormInputs }: Props): React.ReactElement {
             required
             name="bedroom"
             variant="outlined"
-            type="text"
+            type="number"
             fullWidth
             {...FormInputs.bedroom}
           />
@@ -85,7 +85,7 @@ export function FormStepOne({ FormInputs }: Props): React.ReactElement {
             required
             name="bed"
             variant="outlined"
-            type="text"
+            type="number"
             fullWidth
             {...FormInputs.bed}
           />
@@ -96,7 +96,7 @@ export function FormStepOne({ FormInputs }: Props): React.ReactElement {
             required
             name="bath"
             variant="outlined"
-            type="text"
+            type="number"
             fullWidth
             {...FormInputs.bath}
           />

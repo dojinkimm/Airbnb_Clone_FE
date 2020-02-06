@@ -295,6 +295,7 @@ export function UploadRoomUI(): React.ReactElement {
         });
         imageFormDispatcher({
           type: 'imageFile',
+          // value: e.target.files
           value: [...imageFromState.imageFile, e.target.files[0]]
         });
       }

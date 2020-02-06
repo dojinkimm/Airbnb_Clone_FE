@@ -21,29 +21,32 @@ export function useStateReducer<T>(state: T, action: ActionParams<T>): T {
   };
 }
 
-const convertKeyWithObject = (key: string, object?: string): string =>
-  object ? `${object}[${key}]` : key;
-const appendStatesToFormData = (
+const appendToFormData = (
   formData: FormData,
-  states: BasicForm | AddressForm | ImageForm,
-  object?: string,
+  states: BasicForm | AddressForm | ImageForm
 ): void => {
   for (const [key, state] of Object.entries(states)) {
-    const stateValue = state.value;
-    if (key === 'mainImg' || typeof stateValue !== 'object')
-      formData.append(convertKeyWithObject(key, object), stateValue);
-    else
-      for (const [key, value] of Object.entries<string>(stateValue))
-        formData.append(convertKeyWithObject(key, object), value);
+    if (key === 'imagePreview') continue;
+    else if (key === 'imageFile')
+      state.forEach((image:File)=>{
+        formData.append('image', image);
+      });
+    else if (key === 'convenience')
+      for (const [subkey, value] of Object.entries<string>(state))
+        formData.append(`${key}[${subkey}]`, value);
+    else formData.append(key, state);
   }
 };
 
-
-const createFormData = (basicFormState: BasicForm, addressFormState: AddressForm, imageFormState: ImageForm): FormData => {
+const createFormData = (
+  basicFormState: BasicForm,
+  addressFormState: AddressForm,
+  imageFormState: ImageForm
+): FormData => {
   const formData = new FormData();
-  appendStatesToFormData(formData, basicFormState);
-  appendStatesToFormData(formData, addressFormState);
-  appendStatesToFormData(formData, imageFormState);
+  appendToFormData(formData, basicFormState);
+  appendToFormData(formData, addressFormState);
+  appendToFormData(formData, imageFormState);
   return formData;
 };
 
@@ -64,7 +67,7 @@ const BasicFormDefault: BasicForm = {
     breakfast: false,
     tv: false,
     laundry: false,
-    ac: false,
+    ac: false
   }
 };
 
@@ -121,18 +124,18 @@ export default function StoreProvider({
 
   useEffect(() => {
     if (!submit) return;
-    
-    // const formData = createFormData(basicFormState, addressFormState, imageFormState);
-    // console.log(formData);
-    const formData = new FormData();
-    formData.append('image', imageFormState.imageFile[0]);
-    console.log(imageFormState.imageFile[0]);
 
-    createRoom(formData).then((res)=>{
-      
-      return history.push('/');
-    }).catch(e=>console.log(e));
+    const formData = createFormData(
+      basicFormState,
+      addressFormState,
+      imageFormState
+    );
 
+    createRoom(formData)
+      .then(res => {
+        return history.push('/');
+      })
+      .catch(e => console.log(e));
   }, [basicFormState, addressFormState, imageFormState, submit, history]);
 
   return (

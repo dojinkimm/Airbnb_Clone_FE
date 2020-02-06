@@ -29,5 +29,6 @@ export interface AddressForm {
 
 export interface ImageForm{
     imagePreview: string[];
-    imageFile: File[];
+    // imageFile: File[];
+    imageFile:any;
 }
