@@ -23,9 +23,9 @@ function LoginUI(): React.ReactElement {
           Sign up
         </Typography>
         <form className={classes.form}>
-        <Link href="http://localhost:8080/login?returnTo=/">
+        {/* <Link href="http://localhost:8080/login?returnTo=/"> */}
+        <Link href="http://localhost:8080/auth">
           <Button
-            // type="submit"
             fullWidth
             variant="contained"
             className={classes.submit}

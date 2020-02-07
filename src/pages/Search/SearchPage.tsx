@@ -1,12 +1,10 @@
 import React from 'react';
 import {SearchUI} from './ui/SearchUI';
 
-export default class SearchPage extends React.Component {
-  render() {
+export default function SearchPage(): React.ReactElement  {
     return (
       <React.Fragment>
         <SearchUI/>
       </React.Fragment>
     );
-  }
 }
