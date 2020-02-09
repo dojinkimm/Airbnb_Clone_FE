@@ -64,12 +64,11 @@ export default function Header({
           <div>
             <Button size="small" className={tabs}>한국어(KR)</Button>
             <Button size="small" className={tabs}>₩ KRW</Button>
-            <Button size="small" className={tabs}>Sign up</Button>
             <Link
               to={{
                 pathname: '/login'
               }}
-            ><Button size="small" className={tabs}>Login</Button></Link>
+            ><Button size="small" className={tabs}>Sign In</Button></Link>
           </div>
         </Toolbar>
       </AppBar>
