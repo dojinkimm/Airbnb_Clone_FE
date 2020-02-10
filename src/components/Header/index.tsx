@@ -16,13 +16,17 @@ interface Props {
   path: string;
   hasTextField: boolean;
   isLoggedIn: boolean;
+  logoutBtn: {
+    onClick: (e: React.MouseEvent<HTMLElement>) => void
+  }
 }
 
 export default function Header({
   logo,
   path,
   hasTextField,
-  isLoggedIn
+  isLoggedIn,
+  logoutBtn
 }: Props): React.ReactElement {
   const classes = useStyles();
   const toolbar = hasTextField ? classes.toolbar : '';
@@ -63,14 +67,20 @@ export default function Header({
           )}
           <div className={classes.flexGrow} />
           <div>
-            <Button size="small" className={tabs}>
-              한국어(KR)
-            </Button>
-            <Button size="small" className={tabs}>
-              ₩ KRW
-            </Button>
+            {isLoggedIn && (
+              <Link
+                to={{
+                  pathname: '/upload-room'
+                }}
+                className={classes.link}
+              >
+                <Button size="small" className={tabs}>
+                  호스트가 되어보세요
+                </Button>
+              </Link>
+            )}
             {isLoggedIn ? (
-              <Button size="small" className={tabs}>
+              <Button size="small" className={tabs} {...logoutBtn}>
                 Logout
               </Button>
             ) : (

@@ -29,6 +29,10 @@ export interface AddressForm {
 
 export interface ImageForm{
     imagePreview: string[];
-    // imageFile: File[];
-    imageFile:any;
+    imageFile: File[];
+}
+
+export interface AuthenticationState{
+  isAuth: boolean;
+  token: string;
 }
