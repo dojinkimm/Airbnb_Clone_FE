@@ -10,6 +10,7 @@ import LoginPage from './pages/Login/LoginPage';
 import SearchPage from './pages/Search/SearchPage';
 import RoomPage from './pages/Room/RoomPage';
 import UploadRoomPage from './pages/UploadRoom/UploadRoomPage';
+import MyPage from './pages/MyPage/MyPage';
 import { NotFound } from './components';
 import GlobalStoreProvider from './store';
 import { AuthState } from './store/authStore';
@@ -25,6 +26,7 @@ const App: React.FC = () => {
           <Route exact path="/room" component={RoomPage} />
           <PublicRoute exact path="/login" component={LoginPage} />
           <PrivateRoute exact path="/upload-room" component={UploadRoomPage} />
+          <PrivateRoute exact path="/mypage" component={MyPage} />
           <Route path="*" component={NotFound} />
           
         </Switch>

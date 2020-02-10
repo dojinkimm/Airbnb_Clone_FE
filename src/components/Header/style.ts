@@ -15,6 +15,8 @@ export const useStyles = makeStyles(theme => ({
   },
   tabs:{
     color: '#FFFFFF',
+    fontSize: '1rem',
+    margin: '1rem',
   },
   flexGrow:{
     flex:1

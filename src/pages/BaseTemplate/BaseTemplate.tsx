@@ -7,6 +7,7 @@ import logo from 'src/assets/logo.svg';
 import { AuthState, LoginDispatch, AuthDispatch } from 'src/store/authStore';
 import { useStyles } from './style';
 import { useCookies } from 'react-cookie';
+import {useHistory} from 'react-router-dom';
 
 interface Props {
   children: React.ReactNode;
@@ -20,6 +21,8 @@ export default function BasedTemplate({
   hasFilter = true
 }: Props): React.ReactElement {
   const classes = useStyles();
+
+  const history = useHistory();
   const [,,removeCookie] = useCookies(['UID']);
   const authState = useContext(AuthState);
   const setLogin = useContext(LoginDispatch);
@@ -38,6 +41,7 @@ export default function BasedTemplate({
         }
       });
       setLogin(false);
+      return history.push('/');
     }
   };
 
@@ -47,7 +51,7 @@ export default function BasedTemplate({
         <Header
           logo={isTransparent ? logo_transparent : logo}
           path={'/'}
-          hasTextField={isTransparent ? false : true}
+          hasTextField={!isTransparent}
           isLoggedIn={authState.isAuth}
           logoutBtn={logoutBtn}
         />

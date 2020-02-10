@@ -47,11 +47,11 @@ export default function Header({
                 pathname: `${path}`
               }}
             >
-              <img src={logo} width={30} alt="logo" />
+              <img src={logo} width={35} alt="logo" />
             </Link>
           </IconButton>
 
-          {hasTextField && (
+          {/* {hasTextField && (
             <TextField
               className={classes.toolbarSearch}
               id="input-with-icon-textfield"
@@ -64,7 +64,7 @@ export default function Header({
                 )
               }}
             />
-          )}
+          )} */}
           <div className={classes.flexGrow} />
           <div>
             {isLoggedIn && (
@@ -79,6 +79,18 @@ export default function Header({
                 </Button>
               </Link>
             )}
+            {isLoggedIn && (
+              <Link
+                to={{
+                  pathname: '/mypage'
+                }}
+                className={classes.link}
+              >
+                <Button size="small" className={tabs}>
+                  마이 페이지
+                </Button>
+              </Link>
+            )}
             {isLoggedIn ? (
               <Button size="small" className={tabs} {...logoutBtn}>
                 Logout
@@ -90,7 +102,7 @@ export default function Header({
                 }}
                 className={classes.link}
               >
-                <Button size="small" className={tabs}>
+                <Button className={tabs}>
                   Sign In
                 </Button>
               </Link>
