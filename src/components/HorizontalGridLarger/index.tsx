@@ -24,7 +24,9 @@ interface Props {
   tileData: Data[];
 }
 
-export default function HorizontalGridLarger({ tileData }: Props): React.ReactElement {
+export default function HorizontalGridLarger({
+  tileData
+}: Props): React.ReactElement {
   const classes = useStyles();
 
   return (
@@ -33,6 +35,7 @@ export default function HorizontalGridLarger({ tileData }: Props): React.ReactEl
         <GridList className={classes.gridList} spacing={10} cols={5}>
           {tileData.map(tile => (
             <Card
+              key={tile.id}
               className={classes.card}
               elevation={0}
               style={{ padding: '0px', height: '35vh' }}
@@ -49,7 +52,7 @@ export default function HorizontalGridLarger({ tileData }: Props): React.ReactEl
                   </Box>
                   <div className={classes.grow} />
                   <Star className={classes.icon} />
-                    <Typography className={classes.rate}>{tile.rate}</Typography>
+                  <Typography className={classes.rate}>{tile.rate}</Typography>
                 </Container>
                 <Typography className={classes.title}>{tile.title}</Typography>
               </CardContent>

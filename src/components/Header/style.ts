@@ -14,6 +14,12 @@ export const useStyles = makeStyles(theme => ({
     flex:0.5,
   },
   tabs:{
-    color: '#FFFFFF'
+    color: '#FFFFFF',
   },
+  flexGrow:{
+    flex:1
+  },
+  link:{
+    textDecoration: 'none'
+  }
 }));

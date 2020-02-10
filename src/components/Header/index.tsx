@@ -10,22 +10,23 @@ import TextField from '@material-ui/core/TextField';
 import AppBar from '@material-ui/core/AppBar';
 
 import { useStyles } from './style';
-import 'src/styles/normalize.css';
 
 interface Props {
   logo: string;
   path: string;
   hasTextField: boolean;
+  isLoggedIn: boolean;
 }
 
 export default function Header({
   logo,
   path,
-  hasTextField
+  hasTextField,
+  isLoggedIn
 }: Props): React.ReactElement {
   const classes = useStyles();
   const toolbar = hasTextField ? classes.toolbar : '';
-  const tabs = hasTextField? '': classes.tabs;
+  const tabs = hasTextField ? '' : classes.tabs;
 
   return (
     <React.Fragment>
@@ -60,15 +61,30 @@ export default function Header({
               }}
             />
           )}
-          <div className="flex-grow" />
+          <div className={classes.flexGrow} />
           <div>
-            <Button size="small" className={tabs}>한국어(KR)</Button>
-            <Button size="small" className={tabs}>₩ KRW</Button>
-            <Link
-              to={{
-                pathname: '/login'
-              }}
-            ><Button size="small" className={tabs}>Sign In</Button></Link>
+            <Button size="small" className={tabs}>
+              한국어(KR)
+            </Button>
+            <Button size="small" className={tabs}>
+              ₩ KRW
+            </Button>
+            {isLoggedIn ? (
+              <Button size="small" className={tabs}>
+                Logout
+              </Button>
+            ) : (
+              <Link
+                to={{
+                  pathname: '/login'
+                }}
+                className={classes.link}
+              >
+                <Button size="small" className={tabs}>
+                  Sign In
+                </Button>
+              </Link>
+            )}
           </div>
         </Toolbar>
       </AppBar>

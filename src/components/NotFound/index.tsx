@@ -3,7 +3,7 @@ import { useStyles } from './style';
 
 export default function NotFound(): React.ReactElement {
   const classes = useStyles();
-  console.log('HERE');
+
   return (
     <React.Fragment>
       <div className={classes.bgPurple}>

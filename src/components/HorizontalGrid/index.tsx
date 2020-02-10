@@ -26,7 +26,7 @@ export default function HorizontalGrid({ tileData }: Props): React.ReactElement 
       <div className={classes.root}>
         <GridList className={classes.gridList} spacing={10} cols={8}>
           {tileData.map(tile => (
-            <Card className={classes.card} elevation={3} style={{padding:"0px"}}>
+            <Card key={tile.id} className={classes.card} elevation={3} style={{padding:"0px"}}>
               <img className={classes.image} src={tile.img} alt={tile.title} />
               <CardContent className={classes.cardcontent}>
                 <Typography>{tile.title}</Typography>
