@@ -51,11 +51,11 @@ const createFormData = (
 };
 
 const BasicFormDefault: BasicForm = {
-  name: '',
+  title: '',
   capacity: 0,
-  bedroom: 0,
-  bed: 0,
-  bath: 0,
+  bedroomNumber: 0,
+  bedNumber: 0,
+  bathNumber: 0,
   price: 0,
   checkin: '14:00',
   checkout: '11:00',
@@ -131,11 +131,8 @@ export default function StoreProvider({
       imageFormState
     );
 
-    createRoom(formData)
-      .then(res => {
-        return history.push('/');
-      })
-      .catch(e => console.log(e));
+    createRoom(formData);
+    return history.push('/');
   }, [basicFormState, addressFormState, imageFormState, submit, history]);
 
   return (

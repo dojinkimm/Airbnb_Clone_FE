@@ -72,7 +72,7 @@ export function UploadRoomUI(): React.ReactElement {
       onChange: (e: React.ChangeEvent<HTMLInputElement>): void => {
         const value = e.target.value;
         basicFormDispatcher({
-          type: 'name',
+          type: 'title',
           value: value
         });
       }
@@ -91,7 +91,7 @@ export function UploadRoomUI(): React.ReactElement {
         const value = Number(e.target.value);
 
         basicFormDispatcher({
-          type: 'bedroom',
+          type: 'bedroomNumber',
           value: value
         });
       }
@@ -101,7 +101,7 @@ export function UploadRoomUI(): React.ReactElement {
         const value = Number(e.target.value);
 
         basicFormDispatcher({
-          type: 'bed',
+          type: 'bedNumber',
           value: value
         });
       }
@@ -111,7 +111,7 @@ export function UploadRoomUI(): React.ReactElement {
         const value = Number(e.target.value);
 
         basicFormDispatcher({
-          type: 'bath',
+          type: 'bathNumber',
           value: value
         });
       }
@@ -295,7 +295,6 @@ export function UploadRoomUI(): React.ReactElement {
         });
         imageFormDispatcher({
           type: 'imageFile',
-          // value: e.target.files
           value: [...imageFromState.imageFile, e.target.files[0]]
         });
       }
@@ -321,7 +320,7 @@ export function UploadRoomUI(): React.ReactElement {
             </Stepper>
           </MuiThemeProvider>
 
-          <form onSubmit={onSubmit} noValidate>
+          <form noValidate>
             {getStepContent(activeStep, basicFormHandler, addressFormHandler, imageFormHandler)}
             <div className={classes.buttons}>
               {activeStep !== 0 && (

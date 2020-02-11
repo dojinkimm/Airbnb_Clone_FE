@@ -1,9 +1,9 @@
 export interface BasicForm {
-  name: string;
+  title: string;
   capacity: number;
-  bedroom: number;
-  bed: number;
-  bath: number;
+  bedroomNumber: number;
+  bedNumber: number;
+  bathNumber: number;
   price: number;
   checkin: string;
   checkout: string;
