@@ -51,7 +51,7 @@ export default function Header({
             </Link>
           </IconButton>
 
-          {/* {hasTextField && (
+          {hasTextField && (
             <TextField
               className={classes.toolbarSearch}
               id="input-with-icon-textfield"
@@ -64,7 +64,7 @@ export default function Header({
                 )
               }}
             />
-          )} */}
+          )}
           <div className={classes.flexGrow} />
           <div>
             {isLoggedIn && (

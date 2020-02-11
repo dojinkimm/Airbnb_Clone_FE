@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+
 import logo from 'src/assets/logo.svg';
 
 import { useStyles } from './style';
@@ -21,7 +23,13 @@ export default function FormHeader(): React.ReactElement {
       >
         <Toolbar className={classes.toolbar}>
           <IconButton>
-            <img src={logo} width={30} alt="logo" />
+          <Link
+              to={{
+                pathname: '/'
+              }}
+            >
+              <img src={logo} width={35} alt="logo" />
+            </Link>
           </IconButton>
           <Typography
             className={classes.headTitle}
