@@ -2,7 +2,9 @@
 
 ### 진행상황
 
-Authentication ✅ <br/>
-Room Upload View ✅<br/>
-Search View ✅<br/>
-Detail View ✅<br/>
+- [x] Main Page
+- [x] Upload Page
+- [x] Detail Page
+- [x] Social Login
+- [x] Authentication
+
