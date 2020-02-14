@@ -1,19 +1,12 @@
 import React from 'react';
 import BaseTemplate from 'src/pages/BaseTemplate/BaseTemplate';
-import {HorizontalGrid, HorizontalGridLarger } from 'src/components';
+import {HorizontalGridLarger, Banner } from 'src/components';
 import { useStyles } from './style';
 
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 
-import seoul from '../../../assets/city/seoul.jpg';
-import newyork from '../../../assets/city/newyork.jpg';
-import berlin from '../../../assets/city/berlin.jpg';
-import capetown from '../../../assets/city/capetown.jpg';
-import chicago from '../../../assets/city/chicago.jpg';
-import paris from '../../../assets/city/paris.jpeg';
-import kairo from '../../../assets/city/kairo.jpg';
-import singapore from '../../../assets/city/singapore.jpg';
+import banner from 'src/assets/banner.jpg';
 
 import pic1 from '../../../assets/houses/pic1.jpg';
 import pic2 from '../../../assets/houses/pic2.jpg';
@@ -21,56 +14,6 @@ import pic3 from '../../../assets/houses/pic3.jpg';
 import pic4 from '../../../assets/houses/pic4.jpg';
 import pic5 from '../../../assets/houses/pic5.jpg';
 
-const tileData = [
-  {
-    id: 1,
-    img: seoul,
-    title: 'Seoul',
-    link: '/search'
-  },
-  {
-    id: 2,
-    img: newyork,
-    title: 'New York',
-    link: '/search'
-  },
-  {
-    id: 3,
-    img: berlin,
-    title: 'Berlin',
-    link: '/search'
-  },
-  {
-    id: 4,
-    img: capetown,
-    title: 'Cape Town',
-    link: '/search'
-  },
-  {
-    id: 5,
-    img: chicago,
-    title: 'Chicago',
-    link: '/search'
-  },
-  {
-    id: 6,
-    img: paris,
-    title: 'Paris',
-    link: '/search'
-  },
-  {
-    id: 7,
-    img: kairo,
-    title: 'Kairo',
-    link: '/search'
-  },
-  {
-    id: 8,
-    img: singapore,
-    title: 'Singapore',
-    link: '/search'
-  }
-];
 
 const tileData2 = [
   {
@@ -134,7 +77,7 @@ export function SearchUI(): React.ReactElement {
         <Typography className={classes.title} variant="h5">
           에어비앤비와 함께 전 세계를 여행해보세요
         </Typography>
-        <HorizontalGrid tileData={tileData} />
+        <Banner bannerImg={banner}/>
 
         <div className={classes.bwtitles}/>
           <Typography variant="h5" className={classes.title}>

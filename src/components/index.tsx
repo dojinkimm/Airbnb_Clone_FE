@@ -13,6 +13,7 @@ export { default as ReservationCalendar } from './ReservationCalendar';
 export { default as Review } from './Review';
 export { default as Convenience } from './Convenience';
 export {default as FormHeader} from './FormHeader';
+export {default as Banner} from './Banner';
 export {default as NotFound} from './NotFound';
 
 export {FormStepOne} from './FormSteps';
